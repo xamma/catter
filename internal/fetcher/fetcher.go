@@ -1,11 +1,11 @@
 package fetcher
 
 import (
+	"encoding/json"
+	"fmt"
+	"io"
 	"net/http"
 	"net/url"
-	"encoding/json"
-	"io"
-	"fmt"
 	"os"
 	"path"
 )
@@ -15,10 +15,10 @@ const (
 )
 
 type ApiResponse struct {
-	Id string `json:"id"`
-	Url string `json:"url"`
-	Width int `json:"width"`
-	Height int `json:"height"`
+	Id     string `json:"id"`
+	Url    string `json:"url"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
 }
 
 func FetchCatImages(limit int) ([]ApiResponse, error) {

@@ -34,6 +34,9 @@ func main() {
 
 	for i, cat := range cats {
 		fmt.Printf("Cat %d: %s\n", i+1, cat.Url)
-		fetcher.SaveCatImage(cat.Url, *savePath)
+		err := fetcher.SaveCatImage(cat.Url, *savePath)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
